@@ -10,13 +10,14 @@ public class searchEngine extends Application{
 
     @Override
     public void start(Stage primaryStage){
+        Textbox input = new Textbox();
         Button btn = new Button();
-        btn.setText("Say Hello world");
+        btn.setText("Search");
         btn.setOnAction(new EventHandler<ActionEvent>(){
         
             @Override
             public void handle(ActionEvent event) {
-                System.out.println("Hello World!");
+                //Add code here to take user input and perform the search (search class)
             }
         });
 
@@ -25,7 +26,7 @@ public class searchEngine extends Application{
         
         Scene scene = new Scene(root, 300, 250);
 
-        primaryStage.setTitle("Hello world!");
+        primaryStage.setTitle("2000's Music Search Engine");
         primaryStage.setScene(scene);
         primaryStage.show();
     }
