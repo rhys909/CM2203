@@ -10,10 +10,12 @@ class search {
     }
 
     public String returnSearchResultXML() {
+        //need to add auto generation of XML based on query
         return "<XML>" + userInput + "<\\XML>";
     }
 
     public String returnSearchResultHTML() {
+        //need to add auto generation of HTML based on query
         return "<HTML>" + userInput + "<\\HTML>";
     }
 
