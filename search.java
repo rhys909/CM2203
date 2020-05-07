@@ -1,9 +1,28 @@
 //code that will perform the search
 
-public class search {
-    public void userSearch(String input){
-        System.out.println(input);
+class search {
+    public search(String input) {
+        userInput = input;
     }
+
+    public String getInput() {
+        return userInput;
+    }
+
+    public String returnSearchResultXML() {
+        return "<XML>" + userInput + "<\\XML>";
+    }
+
+    public String returnSearchResultHTML() {
+        return "<HTML>" + userInput + "<\\HTML>";
+    }
+
+    public void userSearch(){
+        //Add the search function here 
+        System.out.println(userInput);
+    }
+
+    private String userInput;
     //create methods that take user input
     //add checks to ensure only 2000's music is output
     // one Genres "Rock" 
