@@ -42,4 +42,58 @@ class queryBuilder{
         return HTML;
     }
 
+
+            output += results.next().get("abstract").toString();
+
+        }
+        
+        return output;
+    }
+
+    public String toXML(){
+        String XML = new String();
+        return XML;
+    }
+
+    public String toHTML(){
+        String HTML = new String();
+        return HTML;
+    }
+
+
+            output += results.next().get("abstract").toString();
+
+        }
+        
+        return output;
+    }
+
+    public String toXML(){
+        String XML = new String();
+        return XML;
+    }
+
+    public String toHTML(){
+        String HTML = new String();
+        return HTML;
+    }
+
+
+            output += results.next().get("abstract").toString();
+
+        }
+        
+        return output;
+    }
+
+    public String toXML(){
+        String XML = new String();
+        return XML;
+    }
+
+    public String toHTML(){
+        String HTML = new String();
+        return HTML;
+    }
+
 }
