@@ -8,7 +8,6 @@ import org.apache.jena.rdf.model.ResourceFactory;
 
 class queryBuilder{
 
-
     public String query(String input){
         ParameterizedSparqlString qs = new ParameterizedSparqlString(""
                 + "prefix rdfs:    <http://www.w3.org/2000/01/rdf-schema#>\n"
@@ -42,5 +41,5 @@ class queryBuilder{
         String HTML = new String();
         return HTML;
     }
-    
+
 }

@@ -18,7 +18,7 @@ class dictionary {
         String[] u2Albums = {"All That You Can't Leave Behind", "How to Dismantle an Atomic Bomb", "No Line on the Horizon"};
         String[] soadAlbums = {"Toxicity", "Steal This Album!", "Mezmerize", "Hypnotize"};
         String[] whiteStripesAlbums = {"De Stijl", "White Blood Cells", "Elephant", "Get Behind Me Satan", "Icky Thump"};
-        String[] greenDayAlbums = {"Warning", "American Idio"};
+        String[] greenDayAlbums = {"Warning", "American Idiot", "21st Century Breakdown"};
 
         artistDict.put("OutKast", outkastAlbums);
         artistDict.put("Eminem", eminemAlbums);
