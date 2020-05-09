@@ -46,22 +46,14 @@ public class searchEngine extends Application{
         
             @Override
             public void handle(ActionEvent event) {
-
-                search searching = new search(input.getText());
-                String result = new String();
+                //initiate the dict class 
+                //dictionary artist = new dictionary();
+                //Hashtable<String, String[]> dict = artist.dictionaryCreator();
                 
-                //Add code here to take user input and perform the search (search class)
-                if (group.getSelectedToggle() == xml) {
-                    result = searching.returnSearchResultXML();
-                } else if (group.getSelectedToggle() == html) {
-                    result = searching.returnSearchResultHTML();
-                } else {
-                    result = "something went wrong";
-                }
-
-
-
                 //initiate the second screen to display result
+                String result = new String();
+
+                result = queryBuilder.query();
 
                 Stage secondStage = new Stage();
 
@@ -81,6 +73,66 @@ public class searchEngine extends Application{
                 secondStage.setTitle("2000's Music Search Engine");
                 secondStage.setScene(scene2);
                 secondStage.show();
+
+                /*
+                if (input.getText() != null && (input.getText() NOT IN dict)){
+                    search searching = new search(input.getText());
+                    String result = new String();
+                    
+                    //Add code here to take user input and perform the search (search class)
+                    if (group.getSelectedToggle() == xml) {
+                        result = searching.returnSearchResultXML();
+                    } else if (group.getSelectedToggle() == html) {
+                        result = searching.returnSearchResultHTML();
+                    } else {
+                        result = "something went wrong";
+                    }
+    
+    
+    
+                    //initiate the second screen to display result
+    
+                    Stage secondStage = new Stage();
+    
+                    GridPane root2 = new GridPane();
+    
+                    root2.setAlignment(Pos.CENTER);
+                    root2.setHgap(10);
+                    root2.setVgap(10);
+                    root2.setPadding(new Insets(25, 25, 25, 25));
+    
+                    Text sceneContent = new Text(result);
+    
+                    root2.add(sceneContent, 0 , 0);
+    
+                    Scene scene2 = new Scene(root2, 300, 275);
+    
+                    secondStage.setTitle("2000's Music Search Engine");
+                    secondStage.setScene(scene2);
+                    secondStage.show();
+                } else{
+                    //add code here to return an error page or flash error message saying not in controlled environment
+                    
+                    Stage errorStage = new Stage();
+    
+                    GridPane root3 = new GridPane();
+    
+                    root3.setAlignment(Pos.CENTER);
+                    root3.setHgap(10);
+                    root3.setVgap(10);
+                    root3.setPadding(new Insets(25, 25, 25, 25));
+    
+                    Text sceneContent = new Text("There has been error!");
+    
+                    root3.add(sceneContent, 0 , 0);
+    
+                    Scene scene2 = new Scene(root2, 300, 275);
+    
+                    errorStage.setTitle("2000's Music Search Engine");
+                    errorStage.setScene(scene2);
+                    errorStage.show();
+                }
+*/
             }
         });
 
