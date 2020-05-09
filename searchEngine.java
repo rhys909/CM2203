@@ -1,3 +1,5 @@
+import java.util.Arrays;
+
 import javafx.application.*;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
@@ -25,17 +27,17 @@ public class searchEngine extends Application{
 
         //add radio buttons one for XML or JSON
         final ToggleGroup group = new ToggleGroup();
-        RadioButton xml = new RadioButton();
-        RadioButton html = new RadioButton();
+        RadioButton xmlBtn = new RadioButton();
+        RadioButton jsonBtn = new RadioButton();
 
-        xml.setText("XML");
-        html.setText("HTML"); 
+        xmlBtn.setText("XML");
+        jsonBtn.setText("JSON"); 
 
-        xml.setToggleGroup(group);
-        html.setToggleGroup(group);
+        xmlBtn.setToggleGroup(group);
+        jsonBtn.setToggleGroup(group);
 
         //set the default output to xml
-        xml.setSelected(true);
+        xmlBtn.setSelected(true);
 
         //Submit button
         Button btn = new Button();
@@ -46,46 +48,34 @@ public class searchEngine extends Application{
         
             @Override
             public void handle(ActionEvent event) {
-                //initiate the dict class 
-                //dictionary artist = new dictionary();
-                //Hashtable<String, String[]> dict = artist.dictionaryCreator();
-                
+                //initiate the dict class
+                String[] albumsArray = dictionary.AlbumsArrayCreator();
+                String[] artistArray = dictionary.ArtistArrayCreator();
+
                 //initiate the second screen to display result
-                String result = new String();
-
-                result = queryBuilder.query();
-
-                Stage secondStage = new Stage();
-
-                GridPane root2 = new GridPane();
-
-                root2.setAlignment(Pos.CENTER);
-                root2.setHgap(10);
-                root2.setVgap(10);
-                root2.setPadding(new Insets(25, 25, 25, 25));
-
-                Text sceneContent = new Text(result);
-
-                root2.add(sceneContent, 0 , 0);
-
-                Scene scene2 = new Scene(root2, 300, 275);
-
-                secondStage.setTitle("2000's Music Search Engine");
-                secondStage.setScene(scene2);
-                secondStage.show();
-
-                /*
-                if (input.getText() != null && (input.getText() NOT IN dict)){
-                    search searching = new search(input.getText());
+                
+                if (input.getText() != null){
+                    String userInput = input.getText();
+                    String searchUserInput = new String(userInput);
                     String result = new String();
                     
                     //Add code here to take user input and perform the search (search class)
-                    if (group.getSelectedToggle() == xml) {
-                        result = searching.returnSearchResultXML();
-                    } else if (group.getSelectedToggle() == html) {
-                        result = searching.returnSearchResultHTML();
+                    if (group.getSelectedToggle() == xmlBtn) {
+                        if (Arrays.asList(albumsArray).contains(userInput)){
+                            result = queryBuilder.queryAlbumXML(searchUserInput);
+                        }else{
+
+                        }  
+                    } else if (group.getSelectedToggle() == jsonBtn) {
+                        if(Arrays.asList(albumsArray).contains(userInput)){
+                            String temp = queryBuilder.queryAlbumXML(searchUserInput);
+                            result += queryBuilder.XMLtoJSON(temp);
+                        }else{
+                            
+                        }
+
                     } else {
-                        result = "something went wrong";
+                        result += "something went wrong";
                     }
     
     
@@ -126,13 +116,13 @@ public class searchEngine extends Application{
     
                     root3.add(sceneContent, 0 , 0);
     
-                    Scene scene2 = new Scene(root2, 300, 275);
+                    Scene scene3 = new Scene(root3, 300, 275);
     
                     errorStage.setTitle("2000's Music Search Engine");
-                    errorStage.setScene(scene2);
+                    errorStage.setScene(scene3);
                     errorStage.show();
                 }
-*/
+
             }
         });
 

@@ -1,14 +1,11 @@
 import java.util.Hashtable;
 
 class dictionary {
-    public dictionary(Hashtable<String, String[]> dict){
-        dict = artistDict;
-    }
         
-    public String[] AlbumsArrayCreator() {
+    public static String[] AlbumsArrayCreator() {
 
         //this stores each artists albums into a variable for all the artists
-        String[] AlbumsArray = {"Stankonia", "Speakerboxxx", "Idlewild",
+        String[] albumsArray = {"Stankonia", "Speakerboxxx", "Idlewild",
         "The Marshall Mathers LP", "The Eminem Show ", "Encore", "Relapse", "Recovery",
         "Parachutes", "A Rush of Blood to the Head", "X&Y", "Viva la Vida or Death and All His Friends",
         "Kid A", "Amnesiac", "Hail to the Theif", "In Rainbows",
@@ -22,10 +19,10 @@ class dictionary {
         
 
         //this returns the dictionary once all of the data has been added to it
-        return AlbumsArray;
+        return albumsArray;
        }
 
-    public String[] ArtistArrayCreator() {
+    public static String[] ArtistArrayCreator() {
 
         String[] ArtistArray = {"Outkast" , "Eminem", "Coldplay", "Radiohead", "Kanye West", "Alicia Keys", "U2", "System of a Down", 
                                 "The White Stripes", "Green Day"};
