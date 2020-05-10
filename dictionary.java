@@ -1,8 +1,13 @@
-import java.util.Hashtable;
+import java.util.ArrayList;
+import java.util.stream.Collectors;
+
+import org.apache.jena.sparql.function.library.print;
+
+import java.io.*;
 
 class dictionary {
         
-    public static String[] AlbumsArrayCreator() {
+    public static String AlbumsArrayCreator() {
 
         //this stores each artists albums into a variable for all the artists
         String[] albumsArray = {"Stankonia", "Speakerboxxx", "Idlewild",
@@ -19,16 +24,18 @@ class dictionary {
         
 
         //this returns the dictionary once all of the data has been added to it
-        return albumsArray;
+        return albumsArray.toString();
        }
 
-    public static String[] ArtistArrayCreator() {
+    public static String fileToString() throws IOException {
+        String FileToRead = "/AlbumDict.txt";
 
-        String[] ArtistArray = {"Outkast" , "Eminem", "Coldplay", "Radiohead", "Kanye West", "Alicia Keys", "U2", "System of a Down", 
-                                "The White Stripes", "Green Day"};
-        
-        return ArtistArray;
+        InputStream inst = dictionary.class.getResourceAsStream(FileToRead);
+        BufferedReader br = new BufferedReader(new InputStreamReader(inst));
+        String temp = br.lines().collect(Collectors.joining(System.lineSeparator()));
 
+        br.close();
+        return temp;
     }
-    private Hashtable<String, String[]> artistDict = new Hashtable<String, String[]>();
+    
 }

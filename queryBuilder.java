@@ -28,6 +28,8 @@ class queryBuilder{
         +"?album dbo:abstract ?abstract .\n"
         +"?album rdfs:label ?albumName .\n"
         +"?album dbpedia-owl:artist ?Artist .\n"
+        +"FILTER (lang(?albumName)='en')\n"
+        +"FILTER (lang(?abstract)='en')\n"
         +"FILTER regex(\n"
         +"?album, '" + userInput +"'\n"
         +")\n"
@@ -43,35 +45,6 @@ class queryBuilder{
         
         return output;
     }
-    public static String queryArtistXML(String userInput){
-        ParameterizedSparqlString qs = new ParameterizedSparqlString(""
-        //this builds the query template
-        +"PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>\n"
-        +"PREFIX foaf: <http://xmlns.com/foaf/0.1/>\n"
-        +"PREFIX dbpedia-owl: <http://dbpedia.org/ontology/>\n"
-        +"PREFIX dbpprop: <http://dbpedia.org/property/>\n\n"
-        +"SELECT ?album ?albumName ?Artist ?abstract \n"
-        +"WHERE{\n"
-        +"?album a dbpedia-owl:Album .\n"
-        +"?album dbo:abstract ?abstract .\n"
-        +"?album rdfs:label ?albumName .\n"
-        +"?album dbpedia-owl:artist ?Artist .\n"
-        +"FILTER regex(\n"
-        +"?album, '" + userInput +"'\n"
-        +")\n"
-        +"}\n"
-        +"LIMIT 100");
-
-        //System.out.println(qs);
-
-        QueryEngineHTTP qe = new QueryEngineHTTP("http://dbpedia.org/sparql", qs.toString());
-        String output = ResultSetFormatter.asXMLString(qe.execSelect());
-        //System.out.println(output);
-        qe.close();
-        
-        return output;
-    }
-
     public static String XMLtoJSON(String XMLString){
         int ppif = 4;
         JSONObject xmlJSONObj = XML.toJSONObject(XMLString);
